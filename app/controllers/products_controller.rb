@@ -22,6 +22,11 @@ class ProductsController < ApplicationController
     redirect_to products_path
   end
 
+  def body
+    post = Post.find(params[:id])
+    render json: PostSerializer.serialize(post)
+  end
+
   private
 
   def product_params
